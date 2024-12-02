@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "Math for Maria Vasilevna/1.0.0": {
+        "runtime": {
+          "Math for Maria Vasilevna.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Math for Maria Vasilevna/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
