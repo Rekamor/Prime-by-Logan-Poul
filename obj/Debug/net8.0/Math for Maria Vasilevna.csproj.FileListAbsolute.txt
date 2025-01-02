@@ -12,3 +12,7 @@ C:\Users\1092023\RiderProjects\Math for Maria Vasilevna\Math for Maria Vasilevna
 C:\Users\1092023\RiderProjects\Math for Maria Vasilevna\Math for Maria Vasilevna\obj\Debug\net8.0\Math for Maria Vasilevna.pdb
 C:\Users\1092023\RiderProjects\Math for Maria Vasilevna\Math for Maria Vasilevna\obj\Debug\net8.0\Math for Maria Vasilevna.genruntimeconfig.cache
 C:\Users\1092023\RiderProjects\Math for Maria Vasilevna\Math for Maria Vasilevna\obj\Debug\net8.0\ref\Math for Maria Vasilevna.dll
+C:\Users\1092023\RiderProjects\Math for Maria Vasilevna\Math for Maria Vasilevna\obj\Debug\net8.0\Math for Maria Vasilevna.sourcelink.json
+C:\Users\1092023\RiderProjects\Math for Maria Vasilevna\Math for Maria Vasilevna\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\1092023\RiderProjects\Math for Maria Vasilevna\Math for Maria Vasilevna\obj\Debug\net8.0\Math for Maria Vasilevna.csproj.AssemblyReference.cache
+C:\Users\1092023\RiderProjects\Math for Maria Vasilevna\Math for Maria Vasilevna\obj\Debug\net8.0\Math for.CBBC4BAB.Up2Date

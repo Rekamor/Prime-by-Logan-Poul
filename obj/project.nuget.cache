@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "0wqZIZ2WQjg=",
+  "dgSpecHash": "814S6Y2yZ1s=",
   "success": true,
   "projectFilePath": "C:\\Users\\1092023\\RiderProjects\\Math for Maria Vasilevna\\Math for Maria Vasilevna\\Math for Maria Vasilevna.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\1092023\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
   "logs": []
 }
