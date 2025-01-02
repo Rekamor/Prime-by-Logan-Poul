@@ -27,7 +27,7 @@ namespace Math_For_Maria_Vasilevna;
             {
                 Console.WriteLine(MakeNegativeScobes(prime).ToString());
                 
-                switch (3)
+                switch (rand.Next(4))
                 {
                     case 0:
                         MakeSum(ref prime,rand.Next(prime.Values.Count));
