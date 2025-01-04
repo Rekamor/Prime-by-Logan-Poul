@@ -25,7 +25,7 @@ namespace Math_For_Maria_Vasilevna;
 
             for (int i = 0; i < length; i++)
             {
-                Console.WriteLine(MakeNegativeScobes(prime).ToString());
+                Console.WriteLine(prime.ToString());
                 
                 switch (rand.Next(4))
                 {
@@ -61,12 +61,8 @@ namespace Math_For_Maria_Vasilevna;
             prime.Operations.Insert(index, '+');
             
             prime.Scobes.InsertRange(index * 2 + 1,new int[2]);
-
-            bool isscobsmaked = true ;
             
-            //Это страшное isscobsmaked мне кокрас-таки лень писать, ведь для всех четырех функций оно разное
-            
-            if (isscobsmaked)
+            if (ScobesLogic(prime, index))
             {
                 prime.Scobes[index * 2]++;
                 prime.Scobes[index * 2 + 3]++;
@@ -89,9 +85,7 @@ namespace Math_For_Maria_Vasilevna;
             
             prime.Scobes.InsertRange(index * 2 + 1,new int[2]);
 
-            bool isscobsmaked = true;
-            
-            if (isscobsmaked)
+            if (ScobesLogic(prime, index))
             {
                 prime.Scobes[index * 2]++;
                 prime.Scobes[index * 2 + 3]++;
@@ -112,9 +106,7 @@ namespace Math_For_Maria_Vasilevna;
             
             prime.Scobes.InsertRange(index * 2 + 1,new int[2]);
             
-            bool isscobsmaked = true;
-            
-            if (isscobsmaked)
+            if (ScobesLogic(prime, index))
             {
                 prime.Scobes[index * 2]++;
                 prime.Scobes[index * 2 + 3]++;
@@ -151,9 +143,7 @@ namespace Math_For_Maria_Vasilevna;
             
             prime.Scobes.InsertRange(index * 2 + 1,new int[2]);
             
-            bool isscobsmaked = true;
-            
-            if (isscobsmaked)
+            if (ScobesLogic(prime, index))
             {
                 prime.Scobes[index * 2]++;
                 prime.Scobes[index * 2 + 3]++;
@@ -200,18 +190,35 @@ namespace Math_For_Maria_Vasilevna;
             }
             File.WriteAllText(DBFilePath, JsonConvert.SerializeObject(Simples));
         }
-        public static Prime MakeNegativeScobes(Prime inputprime)
+
+        private bool ScobesLogic(Prime prime, int index)
         {
-            Prime outputprime = inputprime;
-            for (int i = 0; i < outputprime.Values.Count; i++)
+            string leftOperations = "/";
+            string rightOperations = "";
+
+            if (prime.Operations[index] == '+' || prime.Operations[index] == '-')
             {
-                if (outputprime.Values[i] < 0 && outputprime.Scobes[i * 2] == 0)
+                leftOperations += "-*";
+                rightOperations += "/*";
+            }
+                
+            bool isscobsmaked = false;
+            
+            if (index > 0 && prime.Scobes[index * 2] == 0)
+            {
+                for (int i = 0; i < leftOperations.Length && isscobsmaked == false; i++)
                 {
-                    outputprime.Scobes[i * 2]++;
-                    outputprime.Scobes[i * 2 + 1]++;
+                     isscobsmaked = prime.Operations[index - 1] == leftOperations[i];
                 }
             }
-            return outputprime;
+            if (index < prime.Operations.Count - 1 && prime.Scobes[index * 2 + 1] == 0)
+            {
+                for (int i = 0; i < rightOperations.Length && isscobsmaked == false; i++)
+                {
+                    isscobsmaked = prime.Operations[index + 1] == rightOperations[i];
+                }
+            }
+            return isscobsmaked;
         }
     }
 
@@ -247,5 +254,18 @@ namespace Math_For_Maria_Vasilevna;
                 if (i < Operations.Count) result += Operations[i];
             }
             return result;
+        }
+        public Prime MakeNegativeScobes()
+        {
+            Prime outputprime = this;
+            for (int i = 0; i < outputprime.Values.Count; i++)
+            {
+                if (outputprime.Values[i] < 0 && outputprime.Scobes[i * 2] == 0)
+                {
+                    outputprime.Scobes[i * 2]++;
+                    outputprime.Scobes[i * 2 + 1]++;
+                }
+            }
+            return outputprime;
         }
     }

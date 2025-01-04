@@ -37,7 +37,7 @@
             int primelen = int.Parse(Console.ReadLine());
             
             Console.WriteLine();
-            Console.WriteLine(PrimeGenerator.MakeNegativeScobes(primeGenerator.CreatePrime(answer, primelen)).ToString());
+            Console.WriteLine(primeGenerator.CreatePrime(answer, primelen).MakeNegativeScobes().ToString());
             Console.WriteLine();
         }
     }

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Math for Maria Vasilevna")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e963099bd39df5ee15147d9a487af9a36bdd0c75")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e6b6b40ccea03cf1c47dd851276b9b1add6e0bd5")]
 [assembly: System.Reflection.AssemblyProductAttribute("Math for Maria Vasilevna")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Math for Maria Vasilevna")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
