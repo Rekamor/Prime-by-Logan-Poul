@@ -22,15 +22,13 @@ namespace Math_For_Maria_Vasilevna
             expressionGenerator.SumDiapazoneMultiplier = 1;
             expressionGenerator.SumDefaultDiapazone = 10;
             expressionGenerator.DevideDiapazone = 10;
-
-            do
-            {
-                Menu:
+            
+            Menu:
                 
                 Console.Clear();
                 
-                if (lenguage == 1) Console.WriteLine("1.Сгенерировать выражение\n2.Настройки генерации чисел\n3.Сменить язык\n4.Информация про простые числа");
-                else Console.WriteLine("1.Generate expression\n2.Number Generation Settings\n3.Change lenguage\n4.Information about prime numbers\n");
+                if (lenguage == 1) Console.WriteLine("1.Сгенерировать выражение\n2.Настройки генерации чисел\n3.Сменить язык\n4.Информация про простые числа\nВ данной программе Enter используется, как \"Назад\"");
+                else Console.WriteLine("1.Generate expression\n2.Number Generation Settings\n3.Change lenguage\n4.Information about prime numbers\nIn this program, Enter is used as \"Back\"");
                 answer = Console.ReadLine();
                 
                 switch (answer)
@@ -48,6 +46,7 @@ namespace Math_For_Maria_Vasilevna
                         {
                             if (lenguage == 1) Console.WriteLine("Не удается преобразовать в число");
                             else Console.WriteLine("Can't convert to a number");
+                            Console.ReadLine();
                             goto Menu;
                         }
                         
@@ -59,6 +58,15 @@ namespace Math_For_Maria_Vasilevna
                         {
                             if (lenguage == 1) Console.WriteLine("Не удается преобразовать в число");
                             else Console.WriteLine("Can't convert to a number");
+                            Console.ReadLine();
+                            goto Menu;
+                        }
+
+                        if (expressionResultLowDiapazone > expressionResultUppDiapazone)
+                        {
+                            if (lenguage == 1) Console.WriteLine("Неверно задан диапазон");
+                            else Console.WriteLine("Еhe range is empty");
+                            Console.ReadLine();
                             goto Menu;
                         }
                         
@@ -70,6 +78,7 @@ namespace Math_For_Maria_Vasilevna
                         {
                             if (lenguage == 1) Console.WriteLine("Не удается преобразовать в число");
                             else Console.WriteLine("Can't convert to a number");
+                            Console.ReadLine();
                             goto Menu;
                         }
                         
@@ -81,6 +90,7 @@ namespace Math_For_Maria_Vasilevna
                         {
                             if (lenguage == 1) Console.WriteLine("Не удается преобразовать в число");
                             else Console.WriteLine("Can't convert to a number");
+                            Console.ReadLine();
                             goto Menu;
                         }
                         
@@ -190,7 +200,7 @@ namespace Math_For_Maria_Vasilevna
                 if (lenguage == 1) Console.WriteLine("Хотите продолжить?");
                 else Console.WriteLine("Continue?");
                 answer = Console.ReadLine().ToLower();
-            } while (answer == "да" || answer == "yes" || answer == "д" || answer == "y");
+                if (answer == "да" || answer == "yes" || answer == "д" || answer == "y") goto Menu;
         }
     }
 }
