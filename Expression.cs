@@ -25,19 +25,31 @@ namespace Math_For_Maria_Vasilevna;
 
             for (int i = 0; i < length; i++)
             {
-                switch (rand.Next(4))
+                int indexOfExpression = rand.Next(expression.Values.Count);
+                
+                switch (rand.Next(2))
                 {
                     case 0:
-                        MakeSum(ref expression,rand.Next(expression.Values.Count));
+                        switch (rand.Next(2))
+                            {
+                                case 0:
+                                    MakeSum(ref expression, indexOfExpression);
+                                    break;
+                                case 1:
+                                    MakeSubtraction(ref expression, indexOfExpression);
+                                    break;
+                            
+                            }
                         break;
                     case 1:
-                        MakeSubtraction(ref expression,rand.Next(expression.Values.Count));
-                        break;
-                    case 2:
-                        MakeDevide(ref expression,rand.Next(expression.Values.Count));
-                        break;
-                    case 3:
-                        MakeMultiplication(ref expression,rand.Next(expression.Values.Count));
+                        if (ToPrimeMultipliers(Math.Abs(expression.Values[indexOfExpression])).Count > 1)
+                        {
+                            MakeMultiplication(ref expression, indexOfExpression);
+                        }
+                        else
+                        {
+                            MakeDevide(ref expression, indexOfExpression);
+                        }
                         break;
                 }
             }
@@ -116,9 +128,17 @@ namespace Math_For_Maria_Vasilevna;
             int multiplication = expression.Values[index];
             List<int> multipliers = ToPrimeMultipliers(multiplication);
             int fstvalue = 1;
-            foreach (int multiplier in multipliers)
+            int fstRequiredMultiplier = rand.Next(multipliers.Count);
+            int sndRequiredMultiplier = rand.Next(multipliers.Count);
+
+            while (fstRequiredMultiplier == sndRequiredMultiplier)
             {
-                if (rand.Next(2) == 0) fstvalue *= multiplier;
+                sndRequiredMultiplier = rand.Next(multipliers.Count);
+            }
+
+            for (int i = 0; i < multipliers.Count; i++)
+            {
+                if (sndRequiredMultiplier != i && fstRequiredMultiplier == i || rand.Next(2) == 0) fstvalue *= multipliers[i];
             }
             int sndvalue = multiplication / fstvalue;
             

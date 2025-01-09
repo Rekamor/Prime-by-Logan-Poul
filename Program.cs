@@ -21,7 +21,7 @@ namespace Math_For_Maria_Vasilevna
             int lenguage = 1;
             expressionGenerator.SumDiapazoneMultiplier = 1;
             expressionGenerator.SumDefaultDiapazone = 10;
-            expressionGenerator.DevideDiapazone = 10;
+            expressionGenerator.DevideDiapazone = 100;
             
             Menu:
                 
