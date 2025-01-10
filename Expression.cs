@@ -105,7 +105,7 @@ namespace Math_For_Maria_Vasilevna;
         {
             Random rand = new Random();
             int devide = expression.Values[index];
-            int fstvalue = rand.Next(1, DevideDiapazone) * (rand.Next(1) * 2 - 1);
+            int fstvalue = rand.Next(2, DevideDiapazone) * (rand.Next(1) * 2 - 1);
             int sndvalue = devide * fstvalue;
             
             expression.Values.RemoveAt(index);
@@ -130,31 +130,36 @@ namespace Math_For_Maria_Vasilevna;
             int fstvalue = 1;
             int fstRequiredMultiplier = rand.Next(multipliers.Count);
             int sndRequiredMultiplier = rand.Next(multipliers.Count);
-
+            
             while (fstRequiredMultiplier == sndRequiredMultiplier)
             {
-                sndRequiredMultiplier = rand.Next(multipliers.Count);
+                sndRequiredMultiplier = multipliers[rand.Next(multipliers.Count)];
             }
 
             for (int i = 0; i < multipliers.Count; i++)
             {
                 if (sndRequiredMultiplier != i && fstRequiredMultiplier == i || rand.Next(2) == 0) fstvalue *= multipliers[i];
             }
-            int sndvalue = multiplication / fstvalue;
-            
-            if (multiplication == 0) fstvalue = rand.Next(DevideDiapazone);
+            int sndvalue = multiplication / fstvalue * sndRequiredMultiplier;
             
             expression.Values.RemoveAt(index);
-            if (rand.Next(2) == 0)
+
+            if (multiplication == 0)
             {
-                expression.Values.Insert(index, fstvalue);
-                expression.Values.Insert(index + 1, sndvalue );
+                if (rand.Next(2) == 0)
+                {
+                    expression.Values.Insert(index, 0);
+                    expression.Values.Insert(index + 1, rand.Next(DevideDiapazone));
+                }
+                else
+                {
+                    expression.Values.Insert(index, rand.Next(DevideDiapazone));
+                    expression.Values.Insert(index + 1, 0);
+                }
             }
-            else
-            {
-                expression.Values.Insert(index, sndvalue);
-                expression.Values.Insert(index + 1, fstvalue );
-            }
+            
+            expression.Values.Insert(index, fstvalue);
+            expression.Values.Insert(index + 1, sndvalue );
             
             expression.Operations.Insert(index, '*');
             

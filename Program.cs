@@ -1,12 +1,10 @@
-﻿using System.Xml.Xsl;
-
-namespace Math_For_Maria_Vasilevna
+﻿namespace Math_For_Maria_Vasilevna
 {
     class Program
     {
         static void Main()
         {
-            string PrimeNumsFilePath = Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location) + "\\Prime_Numbers.json";
+            string PrimeNumsFilePath = Path.GetTempPath() + "\\Prime_Numbers.json";
             
             if (File.Exists(PrimeNumsFilePath) == false)
             {
